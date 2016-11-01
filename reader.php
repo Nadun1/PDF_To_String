@@ -97,10 +97,10 @@ function title($val)
     return $title;  //return title
 }
 
-function returnContent()
+function returnContent($val)
 {
     $a = new PDF2Text();
-    $a->setFilename($GLOBALS['dir1'] . 'Law Report part 1. 2011 (vol.pdf)');
+    $a->setFilename($GLOBALS['dir1'] . '$val');
     $a->decodePDF();
     $textstring = $a->output();
     //$embed = "[pdf-embedder url='http://localhost/wordpress/wp-content/uploads/2016/10/'Law-Report-part-3.pdf' title='law-report-part-3']";
@@ -117,7 +117,7 @@ function insertDatatoDatabase($date, $title, $content)
     echo $title.'<br>';
     $con = $GLOBALS['conn'];
 
-    $sql = "INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post_content`, `post_title`, `post_excerpt`, `post_status`, `comment_status`, `ping_status`, `post_password`, `post_name`, `to_ping`, `pinged`, `post_modified`, `post_modified_gmt`, `post_content_filtered`, `post_parent`, `guid`, `menu_order`, `post_type`, `post_mime_type`, `comment_count`) VALUES ('0', '1', '$date', '2016-10-21 02:38:21', '$content', '$title', '', 'inherit', 'closed', 'closed', '', '229-revision-v1', '', '', '2016-10-21 02:38:21', '2016-10-21 02:38:21', '', '229', 'http://localhost/wordpress/2016/10/21/229-revision-v1/', '0', 'revision', '', '0')";
+    $sql = "INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post_content`, `post_title`, `post_excerpt`, `post_status`, `comment_status`, `ping_status`, `post_password`, `post_name`, `to_ping`, `pinged`, `post_modified`, `post_modified_gmt`, `post_content_filtered`, `post_parent`, `guid`, `menu_order`, `post_type`, `post_mime_type`, `comment_count`) VALUES ('', '1', '$date', '2016-10-21 02:38:21', '$content', '$title', '', 'inherit', 'closed', 'closed', '', '229-revision-v1', '', '', '2016-10-21 02:38:21', '2016-10-21 02:38:21', '', '229', 'http://localhost/wordpress/2016/10/21/229-revision-v1/', '0', 'revision', '', '0')";
     if ($con->query($sql) === TRUE) {
         echo "";
     } else {
