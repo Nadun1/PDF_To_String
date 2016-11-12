@@ -6,8 +6,8 @@
  * Time: 11:26 AM
  */
 
-$pdfDirectory  ='wp-content/uploads/NLR & SLR, PDF & Word Zip/PDF/NLR/NLR V 60';
-$wordDirectory  = 'wp-content/uploads/NLR & SLR, PDF & Word Zip/Word/WORD DOCUMENTS/NEW LAW REPORT/NLR V 60/';
+$pdfDirectory  ='wp-content/uploads/NLR & SLR, PDF & Word Zip/PDF/NLR/NLR V 54';
+$wordDirectory  = 'wp-content/uploads/NLR & SLR, PDF & Word Zip/Word/WORD DOCUMENTS/NEW LAW REPORT/NLR V 54/';
 $filenames = array();
 $scan = scandir($pdfDirectory);
 $brk=0;
@@ -47,7 +47,7 @@ function read_file_docx($filename,$name2,$name3){
     $var1="NadunReplacecont"."<br>";
     $var2 = "NadunReplacecontEnd";
     //$var3 = '<a href="http://lawnetsl.com/wordpress/2016/11/06/aaa/'.$name2.'/"'.'>'.$name2.'</a>'.'<br>';
-    $var3 = '<a href="http://www.lawnetsl.com/wp-content/uploads/2016/11/sllr'.$name3.'"'.'>'.$name3.'</a>'.'<br>';
+    $var3 = '<a href="http://www.lawnetsl.com/wp-content/uploads/2016/11/'.$name3.'"'.'>'.$name3.'</a>'.'<br>';
     return $var3.$var1.nl2br($striped_content).$var2;
 }
 
@@ -92,12 +92,14 @@ foreach ($filenames as $val) {
     $new_post[ping_status] = "open";
 
     wp_insert_post( $new_post );
-    $cat_ids = array( 'NLR','NLR V 60','1977' );
+    $cat_ids = array( 'NLR','NLR V 54','1977' );
     wp_set_object_terms( $post_ID, $cat_ids, 'category' );
     $post_ID=$post_ID+1;
 
+    $brk+=1;
+    if($brk=3){
+        break;
+
     }
 
-wp_set_object_terms( $post_ID, $cat_ids, 'category' );
-$post_ID=$post_ID+1;
-wp_set_object_terms( $post_ID, $cat_ids, 'category' );
+}

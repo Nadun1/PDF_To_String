@@ -2,10 +2,9 @@
 /**
  * Created by PhpStorm.
  * User: Nadun
- * Date: 10/24/2016
- * Time: 11:26 AM
+ * Date: 11/12/2016
+ * Time: 9:51 AM
  */
-
 $pdfDirectory  ='wp-content/uploads/NLR & SLR, PDF & Word Zip/PDF/NLR/NLR V 60';
 $wordDirectory  = 'wp-content/uploads/NLR & SLR, PDF & Word Zip/Word/WORD DOCUMENTS/NEW LAW REPORT/NLR V 60/';
 $filenames = array();
@@ -96,7 +95,7 @@ foreach ($filenames as $val) {
     wp_set_object_terms( $post_ID, $cat_ids, 'category' );
     $post_ID=$post_ID+1;
 
-    }
+}
 
 wp_set_object_terms( $post_ID, $cat_ids, 'category' );
 $post_ID=$post_ID+1;
