@@ -6,8 +6,8 @@
  * Time: 11:26 AM
  */
 
-$pdfDirectory  ='wp-content/uploads/NLR & SLR, PDF & Word Zip/PDF/NLR/NLR V 60';
-$wordDirectory  = 'wp-content/uploads/NLR & SLR, PDF & Word Zip/Word/WORD DOCUMENTS/NEW LAW REPORT/NLR V 60/';
+$pdfDirectory  ='wp-content/uploads/NLR & SLR, PDF & Word Zip/PDF/SLR/SLLR 1978-79  V2';
+$wordDirectory  = 'wp-content/uploadsNLR & SLR, PDF & Word Zip/Word/WORD DOCUMENTS/SRILANKA LAW REPORTS/SLLR 1978-79  V2/';
 $filenames = array();
 $scan = scandir($pdfDirectory);
 $brk=0;
@@ -85,14 +85,14 @@ foreach ($filenames as $val) {
     $new_post[post_author] = 1;
     $new_post[post_title] = $title;
     $new_post[post_content] = $content;
-    $new_post[post_date] = '1977-12-31 12:00:00';
+    $new_post[post_date] = '1979-12-31 12:00:00';
     $new_post[post_type] = "post";
     $new_post[post_category] = array(10);
     $new_post[post_status] = "publish";
     $new_post[ping_status] = "open";
 
     wp_insert_post( $new_post );
-    $cat_ids = array( 'NLR','NLR V 60','1977' );
+    $cat_ids = array( 'SLLR','SLLR 1978-79  V2','1978-79' );
     wp_set_object_terms( $post_ID, $cat_ids, 'category' );
     $post_ID=$post_ID+1;
 

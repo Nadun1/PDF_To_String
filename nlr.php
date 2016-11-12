@@ -46,7 +46,7 @@ function read_file_docx($filename,$name2,$name3){
     $var1="NadunReplacecont"."<br>";
     $var2 = "NadunReplacecontEnd";
     //$var3 = '<a href="http://lawnetsl.com/wordpress/2016/11/06/aaa/'.$name2.'/"'.'>'.$name2.'</a>'.'<br>';
-    $var3 = '<a href="http://www.lawnetsl.com/wp-content/uploads/2016/11/sllr'.$name3.'"'.'>'.$name3.'</a>'.'<br>';
+    $var3 = '<a href="http://www.lawnetsl.com/wp-content/uploads/2016/11/'.$name3.'"'.'>'.$name3.'</a>'.'<br>';
     return $var3.$var1.nl2br($striped_content).$var2;
 }
 
