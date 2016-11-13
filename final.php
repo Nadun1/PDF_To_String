@@ -68,7 +68,7 @@ foreach($scan as $file)
 $new_post = array();
 
 foreach ($filenames as $val) {
-    $title=substr($val, 25);
+    $title=substr($val, 27);
     $title = substr($title, 0,-4);
     $name5=substr($val, 0,-4);
     $name4=str_replace("  "," ",$val);
