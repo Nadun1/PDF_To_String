@@ -13,7 +13,7 @@ $scan = scandir($pdfDirectory);
 $brk=0;
 
 $post_ID=get_the_ID();
-function read_file_docx($filename,$name2,$name3){
+function read_file_docx($filename,$name3){
 
 
 
@@ -47,7 +47,7 @@ function read_file_docx($filename,$name2,$name3){
     $var1="NadunReplacecont"."<br>";
     $var2 = "NadunReplacecontEnd";
     //$var3 = '<a href="http://lawnetsl.com/wordpress/2016/11/06/aaa/'.$name2.'/"'.'>'.$name2.'</a>'.'<br>';
-    $var3 = '<a href="http://www.lawnetsl.com/wp-content/uploads/2016/11/sllr'.$name3.'"'.'>'.$name3.'</a>'.'<br>';
+    $var3 = '<a href="http://www.lawnetsl.com/wp-content/uploads/2016/11/'.$name3.'"'.'>'.$name3.'</a>'.'<br>';
     return $var3.$var1.nl2br($striped_content).$var2;
 }
 
@@ -68,7 +68,7 @@ foreach($scan as $file)
 $new_post = array();
 
 foreach ($filenames as $val) {
-    $title=substr($val, 17);
+    $title=substr($val, 25);
     $title = substr($title, 0,-4);
     $name5=substr($val, 0,-4);
     $name4=str_replace("  "," ",$val);
@@ -79,7 +79,7 @@ foreach ($filenames as $val) {
     $name10=str_replace("(","",$name9);
     $name2=str_replace("--","-",$name10);
     $name1=$wordDirectory.substr($val, 0,-3)."docx";
-    $content=read_file_docx($name1,$name6,$name2);
+    $content=read_file_docx($name1,$name2);
     //$content=str_replace("</p>","",$content1);
 
     $new_post[post_author] = 1;
